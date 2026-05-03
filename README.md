@@ -3,185 +3,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOC Recruitment: Systemic Modernization | Moses Zenon-Laguerre</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #050b14;
-            --bg-card: #0d1a2d;
-            --accent-orange: #FF8C42;
-            --accent-green: #4CAF50;
-            --text-main: #F4F4F4;
-            --text-dim: #a0aec0;
-            --border-glass: rgba(255, 255, 255, 0.1);
+            --bay-blue: #14558F; /* Primary MA Brand Color */
+            --berkshires-green: #388557; /* Accent Green */
+            --duckling-yellow: #F6C51B; /* Highlight Yellow */
+            --granite-gray: #F2F2F2; /* Light Background Gray */
+            --text-dark: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-main);
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
             scroll-behavior: smooth;
         }
 
+        /* Clean Section Transitions - No gaps */
         section {
-            min-height: 100vh;
+            padding: 80px 10% ;
+            min-height: 90vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 80px 20px;
-            box-sizing: border-box;
+            border-bottom: 1px solid #ddd;
         }
 
-        .container { max-width: 1100px; width: 100%; }
-
-        /* HERO SECTION */
-        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
-        .hero-subtitle { font-size: 1.5rem; color: var(--accent-orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; display: block; }
-        .author-tag { font-size: 1.1rem; border-left: 3px solid var(--accent-green); padding-left: 15px; margin-top: 40px; color: var(--text-dim); }
-
-        /* DATA CARDS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { 
-            background: var(--bg-card); 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-glass);
-            transition: transform 0.3s ease;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-orange); }
-        .card h3 { color: var(--accent-orange); margin-top: 0; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; }
-        .card .big-num { font-size: 3.5rem; font-weight: 800; display: block; margin: 10px 0; }
 
-        /* FUNNEL DESIGN */
-        .funnel-box {
-            background: linear-gradient(90deg, #162a45 0%, #0d1a2d 100%);
-            margin: 8px 0;
+        /* Header Style */
+        .hero-section {
+            background-color: var(--bay-blue);
+            color: var(--white);
+            text-align: left;
+            border-bottom: 8px solid var(--duckling-yellow);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            color: var(--bay-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .author-info {
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+
+        /* Funnel Component - Clean State Style */
+        .funnel-container {
+            margin: 40px 0;
+        }
+
+        .funnel-step {
+            background: var(--granite-gray);
+            border-left: 6px solid var(--bay-blue);
+            margin-bottom: 5px;
             padding: 20px 30px;
-            border-left: 5px solid var(--accent-orange);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 1.2rem;
+            transition: background 0.3s;
         }
 
-        /* UTILITY */
-        .highlight { color: var(--accent-orange); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        footer { 
-            padding: 60px; 
-            text-align: center; 
-            border-top: 1px solid var(--border-glass); 
-            font-size: 0.9rem; 
-            color: var(--text-dim);
+        .funnel-step:hover {
+            background: #e9e9e9;
+        }
+
+        .funnel-step strong {
+            color: var(--bay-blue);
+            font-size: 1.5rem;
+        }
+
+        .success-step {
+            border-left-color: var(--berkshires-green);
+            background: #e8f5e9;
+        }
+
+        /* Grid for Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: var(--white);
+            border: 1px solid #ccc;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .metric-card span {
+            display: block;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--bay-blue);
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: var(--granite-gray);
+            padding: 40px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-top: 4px solid var(--bay-blue);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            section { padding: 50px 5%; }
         }
     </style>
 </head>
 <body>
 
-    <section>
-        <div class="container animate__animated animate__fadeIn">
-            <span class="hero-subtitle">MPA Capstone Senior Leadership</span>
-            <h1 class="hero-title">Diagnosing and <span class="highlight">Modernizing</span><br>the Public-Safety Hiring Process</h1>
-            <p style="font-size: 1.3rem; max-width: 800px;">A System Approach to workforce stability within the Massachusetts Department of Correction.</p>
+    <section class="hero-section">
+        <div class="container">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px; color: var(--duckling-yellow);">MPA Capstone Senior Leadership</p>
+            <h1>Diagnosing and Modernizing the Public-Safety Hiring Process</h1>
+            <p class="subtitle">A Systems Approach to Workforce Stability</p>
             
-            <div class="author-tag">
+            <div class="author-info">
                 <strong>Moses Zenon-Laguerre</strong><br>
-                Clark University | May 4th, 2026
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #081220;">
-        <div class="container reveal">
-            <h2 style="color: var(--accent-orange);">The Thesis</h2>
-            <p style="font-size: 1.8rem; line-height: 1.4; font-weight: 600;">
-                The recruitment challenge is not a <span class="highlight">Labor Supply</span> problem—it is a <span class="highlight">System Design</span> problem.
-            </p>
-            [span_2](start_span)[span_3](start_span)<p>This study identifies the <strong>Velocity Deficit</strong>: a collapse in candidate momentum caused by the misalignment between engagement and administrative processing[span_2](end_span)[span_3](end_span).</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="container reveal">
-            <h2 style="color: var(--accent-orange);">01. The Yield Gap</h2>
-            <p>Analysis of <strong>Cohort 339</strong> shows that the majority of attrition is <em>Psychological</em>, not <em>Technical</em>. [span_4](start_span)Candidates disengage due to latency[span_4](end_span).</p>
-            
-            <div style="margin-top: 40px;">
-                <div class="funnel-box" style="width: 100%;"><span>Initial Database (Leads)</span> <strong>2,000</strong></div>
-                <div class="funnel-box" style="width: 85%;"><span>Registered for Exam</span> <strong>800</strong></div>
-                <div class="funnel-box" style="width: 70%;"><span>Listed on Eligible Roster</span> <strong>600</strong></div>
-                <div class="funnel-box" style="width: 35%; border-left-color: var(--accent-green); background: rgba(76, 175, 80, 0.1);">
-                    <span>Academy Entry</span> <strong style="color: var(--accent-green);">150</strong>
-                </div>
-            </div>
-            [span_5](start_span)<p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 20px;">*Final system throughput accounts for a 92% total attrition rate[span_5](end_span).</p>
-        </div>
-    </section>
-
-    <section style="background: #081220;">
-        <div class="container reveal">
-            <h2 style="color: var(--accent-orange);">02. System Variables</h2>
-            [span_6](start_span)[span_7](start_span)<p>We measured the resistance within the "Slow Loop" to identify structural bottlenecks[span_6](end_span)[span_7](end_span).</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>Dead Time</h3>
-                    <span class="big-num">90</span>
-                    [span_8](start_span)<p>Days of systemic silence between registration and examination[span_8](end_span).</p>
-                </div>
-                <div class="card">
-                    <h3>Candidate Half-Life</h3>
-                    <span class="big-num">4-6</span>
-                    [span_9](start_span)<p>Months until 50% of the candidate pool disengages[span_9](end_span).</p>
-                </div>
-                <div class="card">
-                    <h3>Avg. Time-to-Hire</h3>
-                    <span class="big-num">10.2</span>
-                    [span_10](start_span)<p>Months to process a single candidate through the legacy system[span_10](end_span).</p>
-                </div>
+                Massachusetts Department of Correction | Clark University<br>
+                May 4th, 2026
             </div>
         </div>
     </section>
 
     <section>
-        <div class="container reveal">
-            <h2 style="color: var(--accent-orange);">03. The Strategic Shift</h2>
-            [span_11](start_span)<p>Moving from a <strong>Reactive Posture</strong> to a <strong>Predictive Talent Engine</strong>[span_11](end_span).</p>
+        <div class="container fade-in">
+            <h2>The Velocity Deficit</h2>
+            <p style="font-size: 1.4rem;">The recruitment challenges facing the DOC are not a result of declining applicant interest, but the product of a <strong>structurally misaligned hiring system</strong>.</p>
             
-            <div class="grid">
-                <div class="card" style="border-top: 4px solid var(--accent-green);">
-                    <h3>The Fast Loop</h3>
-                    <p>High-velocity engagement. [span_12](start_span)[span_13](start_span)Enforcing a <strong>7-day contact rule</strong> and aggressive outreach to maintain momentum[span_12](end_span)[span_13](end_span).</p>
+            <div class="highlight-box">
+                <p>Specifically, the interaction between high-velocity engagement (the <strong>Fast Loop</strong>) and a structurally constrained administrative system (the <strong>Slow Loop</strong>) creates a measurable deficit in candidate momentum.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--granite-gray);">
+        <div class="container fade-in">
+            <h2>01. The Yield Gap (Cohort 339)</h2>
+            <p>We lose the majority of candidates to <strong>Psychological Attrition</strong>—withdrawal driven by disengagement rather than disqualification.</p>
+            
+            <div class="funnel-container">
+                <div class="funnel-step"><span>Initial Database Leads</span> <strong>2,000</strong></div>
+                <div class="funnel-step"><span>Registered for Exam</span> <strong>800</strong></div>
+                <div class="funnel-step"><span>Listed on Eligible Roster</span> <strong>600</strong></div>
+                <div class="funnel-step success-step"><span>Academy Entry</span> <strong style="color:var(--berkshires-green)">150</strong></div>
+            </div>
+            <p style="font-style: italic; font-size: 0.9rem;">*Only 7.5% of total leads convert to hires.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container fade-in">
+            <h2>02. The "Dead Time" Audit</h2>
+            <p>Administrative latency is the primary source of resistance, reducing system throughput.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span>90 Days</span>
+                    <p>Total systemic silence between hiring milestones.</p>
                 </div>
-                <div class="card" style="border-top: 4px solid var(--accent-orange);">
-                    <h3>The Slow Loop</h3>
-                    <p>Administrative optimization. [span_14](start_span)[span_15](start_span)Aligning civil service cycles with engagement velocity to reduce the deficit[span_14](end_span)[span_15](end_span).</p>
+                <div class="metric-card">
+                    <span>10.2 Mo.</span>
+                    <p>Average total months to process a candidate.</p>
+                </div>
+                <div class="metric-card">
+                    <span>4-6 Mo.</span>
+                    <p><strong>Candidate Half-Life</strong>: The point at which 50% of the pool disengages.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="background: linear-gradient(180deg, var(--bg-dark) 0%, #0a1b33 100%);">
-        <div class="container reveal" style="text-align: center;">
-            <h1 style="font-size: 3.5rem;">Ready for <span style="color: var(--accent-green);">Stability</span>.</h1>
-            [span_16](start_span)[span_17](start_span)<p style="margin: 20px auto; max-width: 700px;">Success is not determined by the number of candidates entering the system, but by the system's ability to <strong>retain</strong> them[span_16](end_span)[span_17](end_span).</p>
+    <section style="background-color: var(--bay-blue); color: white;">
+        <div class="container fade-in">
+            <h2 style="color: var(--duckling-yellow);">03. Strategic Modernization</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Moving from reactive hiring to an <strong>Engineered Workforce Flow</strong>.</p>
+            
+            <div class="metrics-grid">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-top: 4px solid var(--duckling-yellow);">
+                    <h3 style="margin-bottom: 10px;">Immediate Action</h3>
+                    <p>Enforce a <strong>7-day contact rule</strong>. No candidate goes more than a week without a touchpoint.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-top: 4px solid var(--duckling-yellow);">
+                    <h3 style="margin-bottom: 10px;">System Alignment</h3>
+                    <p>Synchronize outreach with exam registration cycles and background check milestones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container fade-in" style="text-align: center;">
+            <h2>Conclusion</h2>
+            <p style="font-size: 1.8rem; line-height: 1.3;">The system fails not because candidates are unavailable, but because it is unable to <strong>retain</strong> them.</p>
+            <p style="margin-top: 20px;">We must transition from an input problem to a <strong>system performance problem</strong>.</p>
         </div>
     </section>
 
     <footer>
-        <p><strong>Moses Zenon-Laguerre</strong> | Master of Public Administration Capstone</p>
-        <p style="opacity: 0.5; margin-top: 10px;">Clark University &copy; 2026</p>
+        <p>&copy; 2026 Moses Zenon-Laguerre | Clark University MPA Capstone</p>
     </footer>
 
     <script>
+        // Simple Intersection Observer for Fade-In Effects
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
